@@ -1038,5 +1038,65 @@
     "source": "Speech — The American Presidency Project",
     "source_url": "https://www.presidency.ucsb.edu/documents/inaugural-address-1",
     "verified": true
+  },
+  {
+    "id": "jefferson-tree-of-liberty",
+    "text": "The tree of liberty must be refreshed from time to time with the blood of patriots and tyrants.",
+    "president": "jefferson",
+    "date": "1787-11-13",
+    "context": "Letter to William Stephens Smith, discussing resistance to rulers and Shays' Rebellion, before his presidency (excerpt).",
+    "source": "Letter — Thomas Jefferson's Monticello",
+    "source_url": "https://www.monticello.org/encyclopedia/tree-liberty-quotation",
+    "verified": true
+  },
+  {
+    "id": "jefferson-differences",
+    "text": "But every difference of opinion is not a difference of principle.",
+    "president": "jefferson",
+    "date": "1801-03-04",
+    "context": "First inaugural address, on political differences (excerpt).",
+    "source": "Speech — The American Presidency Project",
+    "source_url": "https://www.presidency.ucsb.edu/documents/inaugural-address-19",
+    "verified": true
+  },
+  {
+    "id": "jefferson-harmony",
+    "text": "Let us restore to social intercourse that harmony and affection without which liberty and even life itself are but dreary things.",
+    "president": "jefferson",
+    "date": "1801-03-04",
+    "context": "First inaugural address, on reconciliation after the election (excerpt).",
+    "source": "Speech — The American Presidency Project",
+    "source_url": "https://www.presidency.ucsb.edu/documents/inaugural-address-19",
+    "verified": true
+  },
+  {
+    "id": "jefferson-self-government",
+    "text": "Sometimes it is said that man can not be trusted with the government of himself. Can he, then, be trusted with the government of others? Or have we found angels in the forms of kings to govern him? Let history answer this question.",
+    "president": "jefferson",
+    "date": "1801-03-04",
+    "context": "First inaugural address, on self-government (excerpt).",
+    "source": "Speech — The American Presidency Project",
+    "source_url": "https://www.presidency.ucsb.edu/documents/inaugural-address-19",
+    "verified": true
+  },
+  {
+    "id": "jackson-born-for-a-storm",
+    "text": "I was born for a storm, and a calm does not suit me.",
+    "president": "jackson",
+    "date": null,
+    "context": "Reported remark to a friend, as attributed by the Smithsonian National Portrait Gallery; the source does not establish the date.",
+    "source": "Reported remark — Smithsonian National Portrait Gallery",
+    "source_url": "https://npg.si.edu/object/npg_NPG.2023.75?destination=edan-search%2Fcatalog_of_america%3Fedan_fq%255B0%255D%3Ddate%253A%25221820s%2522%26edan_q%3Dis",
+    "verified": true
+  },
+  {
+    "id": "jackson-justice",
+    "text": "Justice--full and ample justice to every portion of the United States should be the ruling principle of every freeman, and should guide the deliberations of every public body, whether it be State or national.",
+    "president": "jackson",
+    "date": "1837-03-04",
+    "context": "Farewell address, urging justice in public deliberations (excerpt).",
+    "source": "Speech — The American Presidency Project",
+    "source_url": "https://www.presidency.ucsb.edu/documents/farewell-address-0",
+    "verified": true
   }
 ]
