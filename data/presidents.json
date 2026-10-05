@@ -1,0 +1,17 @@
+[
+  { "id": "washington",   "name": "George Washington",   "years": "1789–1797", "wiki": "George_Washington" },
+  { "id": "lincoln",      "name": "Abraham Lincoln",     "years": "1861–1865", "wiki": "Abraham_Lincoln" },
+  { "id": "t-roosevelt",  "name": "Theodore Roosevelt",  "years": "1901–1909", "wiki": "Theodore_Roosevelt" },
+  { "id": "coolidge",     "name": "Calvin Coolidge",     "years": "1923–1929", "wiki": "Calvin_Coolidge" },
+  { "id": "truman",       "name": "Harry S. Truman",     "years": "1945–1953", "wiki": "Harry_S._Truman" },
+  { "id": "kennedy",      "name": "John F. Kennedy",     "years": "1961–1963", "wiki": "John_F._Kennedy" },
+  { "id": "lbj",          "name": "Lyndon B. Johnson",   "years": "1963–1969", "wiki": "Lyndon_B._Johnson" },
+  { "id": "nixon",        "name": "Richard Nixon",       "years": "1969–1974", "wiki": "Richard_Nixon" },
+  { "id": "carter",       "name": "Jimmy Carter",        "years": "1977–1981", "wiki": "Jimmy_Carter" },
+  { "id": "reagan",       "name": "Ronald Reagan",       "years": "1981–1989", "wiki": "Ronald_Reagan" },
+  { "id": "clinton",      "name": "Bill Clinton",        "years": "1993–2001", "wiki": "Bill_Clinton" },
+  { "id": "gw-bush",      "name": "George W. Bush",      "years": "2001–2009", "wiki": "George_W._Bush" },
+  { "id": "obama",        "name": "Barack Obama",        "years": "2009–2017", "wiki": "Barack_Obama" },
+  { "id": "trump",        "name": "Donald Trump",        "years": "2017–2021, 2025–", "wiki": "Donald_Trump" },
+  { "id": "biden",        "name": "Joe Biden",           "years": "2021–2025", "wiki": "Joe_Biden" }
+]

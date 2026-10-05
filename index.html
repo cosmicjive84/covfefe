@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Covfefe or Coolidge?</title>
+  <meta name="description" content="One quote. Four presidents. Can you tell who said it?">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,500&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="masthead">
+    <h1>Covfefe <span>or</span> Coolidge?</h1>
+    <p class="tagline">One quote. Four presidents. Who said it?</p>
+  </header>
+
+  <main id="app">
+    <!-- Start screen -->
+    <section id="screen-start" class="screen">
+      <button class="btn btn-primary" id="btn-start">Start</button>
+    </section>
+
+    <!-- Round screen -->
+    <section id="screen-round" class="screen" hidden>
+      <div class="progress"><span id="round-num">1</span> / <span id="round-total">20</span> · Score <span id="score">0</span></div>
+      <blockquote class="quote" id="quote-text"></blockquote>
+      <div class="options" id="options"></div>
+
+      <div class="reveal" id="reveal" hidden>
+        <p class="reveal-verdict" id="reveal-verdict"></p>
+        <p class="reveal-who" id="reveal-who"></p>
+        <p class="reveal-context" id="reveal-context"></p>
+        <p class="reveal-source" id="reveal-source"></p>
+        <button class="btn btn-primary" id="btn-next">Next</button>
+      </div>
+    </section>
+
+    <!-- Results screen -->
+    <section id="screen-results" class="screen" hidden>
+      <p class="final-score"><span id="final-score">0</span> / <span id="final-total">20</span></p>
+      <p class="final-line" id="final-line"></p>
+      <p class="final-grid" id="final-grid"></p>
+      <ul class="final-fooled" id="final-fooled"></ul>
+      <div class="final-actions">
+        <button class="btn btn-primary" id="btn-share">Share</button>
+        <button class="btn" id="btn-again">Play again</button>
+      </div>
+      <p class="share-status" id="share-status" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Every quote is real and sourced. Portraits: official presidential portraits via Wikimedia Commons (public domain).</p>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
