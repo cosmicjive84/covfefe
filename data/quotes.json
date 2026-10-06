@@ -70,16 +70,6 @@
     "verified": true
   },
   {
-    "id": "wiretap",
-    "text": "Terrible! Just found out that Obama had my \"wires tapped\" in Trump Tower just before the victory. Nothing found. This is McCarthyism!",
-    "president": "trump",
-    "date": "2017-03-04",
-    "context": "Tweet making an unsubstantiated accusation that Obama had ordered surveillance of Trump Tower.",
-    "source": "Twitter, @realDonaldTrump — The American Presidency Project",
-    "source_url": "https://www.presidency.ucsb.edu/documents/tweets-march-4-2017",
-    "verified": true
-  },
-  {
     "id": "press-enemy",
     "text": "The FAKE NEWS media (failing @nytimes @NBCNews @ABC @CBS @CNN) is not my enemy it is the enemy of the American People!",
     "president": "trump",
@@ -131,7 +121,7 @@
   },
   {
     "id": "windmill-cancer",
-    "text": "And they say the noise causes cancer.",
+    "text": "If you have a windmill anywhere near your house, congratulations, your house just went down 75 percent in value. And they say the noise causes cancer. You tell me that one, OK?",
     "president": "trump",
     "date": "2019-04-02",
     "context": "Referring to wind turbines at a National Republican Congressional Committee dinner. This was his claim, not an established medical finding.",
@@ -401,7 +391,7 @@
   },
   {
     "id": "punch-protester",
-    "text": "I'd like to punch him in the face",
+    "text": "I love the old days. You know what they used to do to guys like that when they were in a place like this? They'd be carried out on a stretcher, folks. He's walking out like - big high fives, smiling, laughing. I'd like to punch him in the face.",
     "president": "trump",
     "date": "2016-02-22",
     "context": "Excerpt from remarks about a protester being removed from a Las Vegas campaign rally.",
@@ -481,7 +471,7 @@
   },
   {
     "id": "slow-testing",
-    "text": "So I said to my people, slow the testing down, please.",
+    "text": "When you do testing to that extent, you're going to find more people; you're going to find more cases. So I said to my people, 'Slow the testing down please.'",
     "president": "trump",
     "date": "2020-06-20",
     "context": "Phrase from a Tulsa campaign rally where he said he had asked officials to slow coronavirus testing because testing finds more cases. This quotation alone does not establish that such an order was implemented.",
@@ -1097,6 +1087,186 @@
     "context": "Farewell address, urging justice in public deliberations (excerpt).",
     "source": "Speech — The American Presidency Project",
     "source_url": "https://www.presidency.ucsb.edu/documents/farewell-address-0",
+    "verified": true
+  },
+  {
+    "id": "vagan-lettuce",
+    "text": "A vagan is vegetables. A vagan is eating a piece of lettuce all day long.",
+    "president": "trump",
+    "date": "2026-10-03",
+    "context": "At a campaign rally in Vandalia, Ohio, discussing James Talarico and vegan diets. Excerpt from the rally clip transcribed at 03:08 in the linked episode; \"vagan\" represents his reported \"vaygan\" pronunciation of \"vegan\".",
+    "source": "Rally clip transcript — The Harry Sisson Show / Podscripts",
+    "source_url": "https://podscripts.co/podcasts/the-harry-sisson-show/trump-struggles-to-speak-as-rally-backfires",
+    "verified": true
+  },
+  {
+    "id": "aspirin-psychologically",
+    "text": "I take an aspirin a day. I don't know if it works, but psychologically -- I need it. ... And I like Bayer aspirin, the little yellow. And I take the big one. You know, they want me to go down to the 80. I take the 386. I don't know what the hell it is. It's a monster. They said, \"Sir, you don't need that.\" I said, \"Do me a favor. I've been doing okay for 35 years. Leave me alone.\"",
+    "president": "trump",
+    "date": "2026-10-03",
+    "context": "At a campaign rally in Vandalia, Ohio, during remarks about drug prices and Bayer. Excerpt from 48:05–49:15; ellipsis marks omitted remarks and audience laughter is omitted. \"386\" is preserved as transcribed.",
+    "source": "Vandalia rally transcript — Trump Archive / Factbase",
+    "source_url": "https://trump-archive.com/item/0fe892bb-c841-40ad-883b-b50f6d81f538",
+    "verified": true
+  },
+  {
+    "id": "gw-bush-obgyn-love",
+    "text": "Too many OB-GYNs aren't able to practice their love with women all across this country.",
+    "president": "gw-bush",
+    "date": "2004-09-06",
+    "context": "At a campaign rally in Poplar Bluff, Missouri, arguing that medical malpractice lawsuits were driving doctors out of business. This was a verbal slip during that argument.",
+    "source": "Rally video excerpt — CNN Crossfire transcript",
+    "source_url": "https://transcripts.cnn.com/show/cf/date/2004-09-07/segment/00",
+    "verified": true
+  },
+  {
+    "id": "biden-poor-kids",
+    "text": "Poor kids are just as bright and just as talented as white kids.",
+    "president": "biden",
+    "date": "2019-08-08",
+    "context": "At an Asian and Latino Coalition campaign event in Des Moines, Iowa, discussing educational opportunity before his presidency. He immediately followed with \"Wealthy kids, black kids, Asian kids.\" His campaign said he misspoke and intended to contrast poor and wealthy children.",
+    "source": "Campaign remarks and correction — ABC News",
+    "source_url": "https://abcnews.go.com/amp/Politics/biden-misspoke-poor-kids-bright-white-kids-campaign/story?id=64883616",
+    "verified": true
+  },
+  {
+    "id": "nixon-president-not-illegal",
+    "text": "Well, when the President does it, that means that it is not illegal.",
+    "president": "nixon",
+    "date": "1977-05-19",
+    "context": "In the David Frost interview broadcast on this date, after leaving office, discussing presidential authorization of the Huston Plan for domestic surveillance. Nixon later clarified that he meant emergency presidential powers, not that every presidential act was lawful.",
+    "source": "Frost interview quotation and context — Just Security",
+    "source_url": "https://www.justsecurity.org/150422/when-the-president-does-it/",
+    "verified": true
+  },
+  {
+    "id": "gw-bush-fool-me-once",
+    "text": "There's an old saying in Tennessee—I know it's in Texas, probably in Tennessee—that says, fool me once, shame on—shame on you. Fool me—you can't get fooled again.",
+    "president": "gw-bush",
+    "date": "2002-09-17",
+    "context": "During remarks on teaching American history and civic education in Nashville, Tennessee, he stumbled over the proverb \"Fool me once, shame on you; fool me twice, shame on me.\"",
+    "source": "Nashville speech recording — Political Comedy video archive",
+    "source_url": "https://www.youtube.com/watch?v=KjmjqlOPd6A",
+    "verified": true
+  },
+  {
+    "id": "gw-bush-children-learning",
+    "text": "Rarely is the question asked: Is our children learning?",
+    "president": "gw-bush",
+    "date": "2000-01-11",
+    "context": "During a presidential campaign speech about education in Florence, South Carolina, before his presidency. The grammatical error is preserved as quoted by TIME.",
+    "source": "Campaign speech quotation — TIME",
+    "source_url": "https://content.time.com/time/specials/packages/article/0%2C28804%2C1870938_1870943_1870949%2C00.html",
+    "verified": true
+  },
+  {
+    "id": "lbj-trouser-crotch",
+    "text": "Now, another thing: the crotch, down where your nuts hang, is always a little too tight.",
+    "president": "lbj",
+    "date": "1964-08-09",
+    "context": "In a recorded telephone call to clothing manufacturer Joseph M. Haggar Jr., giving tailoring instructions for new trousers and explaining where his existing pairs were too tight (excerpt).",
+    "source": "Telephone recording and transcript — University of Virginia Presidential Recordings",
+    "source_url": "https://prde.upress.virginia.edu/conversations/4006350/",
+    "verified": true
+  },
+  {
+    "id": "lbj-hoover-tent",
+    "text": "I'd rather have him inside the tent pissing out than outside pissing in.",
+    "president": "lbj",
+    "date": null,
+    "context": "Reported explanation for retaining J. Edgar Hoover as FBI director, as quoted by TIME. The source does not establish the date of the remark.",
+    "source": "Reported remark — TIME",
+    "source_url": "https://time.com/6248416/lyndon-b-johnson-legacy-social-reforms/",
+    "verified": true
+  },
+  {
+    "id": "fdr-welcome-hatred",
+    "text": "They are unanimous in their hate for me—and I welcome their hatred.",
+    "president": "fdr",
+    "date": "1936-10-31",
+    "context": "At Madison Square Garden during his reelection campaign, referring to opponents associated with financial monopoly, speculation, reckless banking and war profiteering (excerpt).",
+    "source": "Speech — The American Presidency Project",
+    "source_url": "https://www.presidency.ucsb.edu/documents/address-madison-square-garden-new-york-city-1",
+    "verified": true
+  },
+  {
+    "id": "fdr-test-of-progress",
+    "text": "The test of our progress is not whether we add more to the abundance of those who have much; it is whether we provide enough for those who have too little.",
+    "president": "fdr",
+    "date": "1937-01-20",
+    "context": "Second inaugural address, on measuring national progress by the well-being of people in need (excerpt).",
+    "source": "Inaugural address — FDR Presidential Library",
+    "source_url": "https://www.fdrlibrary.org/fdr",
+    "verified": true
+  },
+  {
+    "id": "fdr-hunger-dictatorships",
+    "text": "People who are hungry and out of a job are the stuff of which dictatorships are made.",
+    "president": "fdr",
+    "date": "1944-01-11",
+    "context": "State of the Union message proposing an economic bill of rights and arguing that economic security is necessary for individual freedom (excerpt).",
+    "source": "State of the Union — FDR Presidential Library",
+    "source_url": "https://www.fdrlibrary.org/budget",
+    "verified": true
+  },
+  {
+    "id": "fdr-kindness-strength",
+    "text": "Human kindness has never weakened the stamina or softened the fiber of a free people. A nation does not have to be cruel in order to be tough.",
+    "president": "fdr",
+    "date": "1940-10-13",
+    "context": "Radio address for the Mobilization for Human Needs, calling for community service and compassion during wartime abroad (excerpt).",
+    "source": "Radio address — The American Presidency Project",
+    "source_url": "https://www.presidency.ucsb.edu/documents/radio-address-for-the-mobilization-for-human-needs",
+    "verified": true
+  },
+  {
+    "id": "megyn-kelly-blood",
+    "text": "She gets out and she starts asking me all sorts of ridiculous questions, and you know, you can see there was blood coming out of her eyes, blood coming out of her wherever.",
+    "president": "trump",
+    "date": "2015-08-07",
+    "context": "In a CNN telephone interview with Don Lemon, criticizing Megyn Kelly's questions at the previous night's Republican primary debate. The remark was widely interpreted as a reference to menstruation; Trump denied that interpretation and later said he meant her nose. Excerpt follows CNN's interview transcript.",
+    "source": "CNN Tonight interview transcript",
+    "source_url": "https://transcripts.cnn.com/show/cnnt/date/2015-08-07/segment/01",
+    "verified": true
+  },
+  {
+    "id": "eisenhower-cost-of-weapons",
+    "text": "Every gun that is made, every warship launched, every rocket fired signifies, in the final sense, a theft from those who hunger and are not fed, those who are cold and are not clothed.",
+    "president": "eisenhower",
+    "date": "1953-04-16",
+    "context": "From the Chance for Peace address to the American Society of Newspaper Editors, describing the human and economic costs of the arms race (excerpt).",
+    "source": "Speech quotation — Eisenhower Presidential Library",
+    "source_url": "https://www.eisenhowerlibrary.gov/eisenhowers/quotes",
+    "verified": true
+  },
+  {
+    "id": "eisenhower-military-industrial-complex",
+    "text": "In the councils of government, we must guard against the acquisition of unwarranted influence, whether sought or unsought, by the military-industrial complex.",
+    "president": "eisenhower",
+    "date": "1961-01-17",
+    "context": "Farewell radio and television address, warning about the influence of the military establishment and arms industry (excerpt).",
+    "source": "Farewell address — The American Presidency Project",
+    "source_url": "https://www.presidency.ucsb.edu/documents/farewell-radio-and-television-address-the-american-people",
+    "verified": true
+  },
+  {
+    "id": "eisenhower-book-burners",
+    "text": "Don't join the book burners. Don't think you are going to conceal faults by concealing evidence that they ever existed.",
+    "president": "eisenhower",
+    "date": "1953-06-14",
+    "context": "Remarks at Dartmouth College's commencement exercises in Hanover, New Hampshire, discussing censorship and access to books (excerpt).",
+    "source": "Speech quotation — Eisenhower Presidential Library",
+    "source_url": "https://www.eisenhowerlibrary.gov/eisenhowers/quotes",
+    "verified": true
+  },
+  {
+    "id": "eisenhower-war-arrogance",
+    "text": "The hope of the world is that wisdom can arrest conflict between brothers. I believe that war is the deadly harvest of arrogant and unreasoning minds.",
+    "president": "eisenhower",
+    "date": "1957-04-04",
+    "context": "Address to the National Education Association in Washington, D.C., on wisdom, peace and the causes of war (excerpt).",
+    "source": "Speech quotation — Eisenhower Presidential Library",
+    "source_url": "https://www.eisenhowerlibrary.gov/eisenhowers/quotes",
     "verified": true
   }
 ]

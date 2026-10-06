@@ -36,10 +36,22 @@
     "wiki": "Calvin_Coolidge"
   },
   {
+    "id": "fdr",
+    "name": "Franklin D. Roosevelt",
+    "years": "1933–1945",
+    "wiki": "Franklin_D._Roosevelt"
+  },
+  {
     "id": "truman",
     "name": "Harry S. Truman",
     "years": "1945–1953",
     "wiki": "Harry_S._Truman"
+  },
+  {
+    "id": "eisenhower",
+    "name": "Dwight D. Eisenhower",
+    "years": "1953–1961",
+    "wiki": "Dwight_D._Eisenhower"
   },
   {
     "id": "kennedy",
