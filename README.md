@@ -23,6 +23,8 @@ js/app.js                  game logic (config constants at the top)
 data/quotes.json           the quotes
 data/presidents.json       presidents shown as answer choices
 img/portraits/<id>.jpg     portraits, one per president id
+img/og-image.png           1200×630 link-preview image
+img/favicon-32.png         favicon (plus apple-touch-icon.png)
 scripts/fetch_portraits.py downloads portraits from Wikipedia/Commons
 ```
 
@@ -67,3 +69,5 @@ One wrong quote gives critics an easy reason to dismiss the whole site.
 ## Deploy
 
 Any static host works: GitHub Pages, Netlify or Cloudflare Pages. Point it at this folder; there's no build command.
+
+If the site moves to a new address, update the absolute URLs in the link-preview tags in `index.html` (`canonical`, `og:url` and `og:image`). Social sites can't load a preview image from a relative path.
