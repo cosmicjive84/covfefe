@@ -72,6 +72,12 @@
     "wiki": "Richard_Nixon"
   },
   {
+    "id": "ford",
+    "name": "Gerald Ford",
+    "years": "1974–1977",
+    "wiki": "Gerald_Ford"
+  },
+  {
     "id": "carter",
     "name": "Jimmy Carter",
     "years": "1977–1981",
@@ -82,6 +88,12 @@
     "name": "Ronald Reagan",
     "years": "1981–1989",
     "wiki": "Ronald_Reagan"
+  },
+  {
+    "id": "ghw-bush",
+    "name": "George H. W. Bush",
+    "years": "1989–1993",
+    "wiki": "George_H._W._Bush"
   },
   {
     "id": "clinton",

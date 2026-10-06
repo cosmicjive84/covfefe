@@ -1268,5 +1268,65 @@
     "source": "Speech quotation — Eisenhower Presidential Library",
     "source_url": "https://www.eisenhowerlibrary.gov/eisenhowers/quotes",
     "verified": true
+  },
+  {
+    "id": "ford-government-of-laws",
+    "text": "Our great Republic is a government of laws and not of men.",
+    "president": "ford",
+    "date": "1974-08-09",
+    "context": "Excerpt from remarks upon taking the presidential oath of office following Richard Nixon's resignation, affirming constitutional government after Watergate.",
+    "source": "Remarks upon taking office — Gerald R. Ford Presidential Library",
+    "source_url": "https://www.fordlibrarymuseum.gov/the-fords/gerald-r-ford/key-speeches-and-writings-gerald-r-ford",
+    "verified": true
+  },
+  {
+    "id": "ford-national-nightmare",
+    "text": "My fellow Americans, our long national nightmare is over.",
+    "president": "ford",
+    "date": "1974-08-09",
+    "context": "Remarks upon taking the presidential oath of office following Richard Nixon's resignation, referring to the Watergate crisis (excerpt).",
+    "source": "Remarks upon taking office — Gerald R. Ford Presidential Library",
+    "source_url": "https://www.fordlibrarymuseum.gov/the-fords/gerald-r-ford/key-speeches-and-writings-gerald-r-ford",
+    "verified": true
+  },
+  {
+    "id": "ghw-bush-serve-people",
+    "text": "There is but one just use of power, and it is to serve people.",
+    "president": "ghw-bush",
+    "date": "1989-01-20",
+    "context": "Excerpt from the prayer opening his inaugural address, describing public power as a responsibility to serve others.",
+    "source": "Inaugural address — George H. W. Bush Presidential Library",
+    "source_url": "https://www.bush41library.gov/digital-research-room/finding-aid/public-papers/inaugural-address",
+    "verified": true
+  },
+  {
+    "id": "ghw-bush-keep-their-word",
+    "text": "Great nations like great men must keep their word.",
+    "president": "ghw-bush",
+    "date": "1989-01-20",
+    "context": "Excerpt from his inaugural address, discussing international commitments and American credibility.",
+    "source": "Inaugural address — George H. W. Bush Presidential Library",
+    "source_url": "https://www.bush41library.gov/digital-research-room/finding-aid/public-papers/inaugural-address",
+    "verified": true
+  },
+  {
+    "id": "ghw-bush-successful-life",
+    "text": "From now on, in America any definition of a successful life must include serving others.",
+    "president": "ghw-bush",
+    "date": "1989-02-17",
+    "context": "Excerpt from remarks to students at Washington University in St. Louis, Missouri, encouraging voluntary service in their communities.",
+    "source": "Remarks to students — The American Presidency Project",
+    "source_url": "https://www.presidency.ucsb.edu/documents/remarks-students-washington-university-st-louis-missouri",
+    "verified": true
+  },
+  {
+    "id": "ghw-bush-read-my-lips",
+    "text": "Read my lips: no new taxes.",
+    "president": "ghw-bush",
+    "date": "1988-08-18",
+    "context": "Campaign pledge in his presidential nomination acceptance address at the Republican National Convention in New Orleans, while serving as vice president (excerpt).",
+    "source": "Nomination acceptance address — The American Presidency Project",
+    "source_url": "https://www.presidency.ucsb.edu/documents/address-accepting-the-presidential-nomination-the-republican-national-convention-new",
+    "verified": true
   }
 ]
