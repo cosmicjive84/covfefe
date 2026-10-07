@@ -2,7 +2,7 @@
   "use strict";
 
   // --- Config -------------------------------------------------------------
-  const ROUNDS = 20;
+  const ROUNDS = 10;
   const OPTIONS_PER_ROUND = 4;
   const TRUMP_SHARE = 0.5;        // fraction of rounds that are Trump quotes
   const TRUMP_ID = "trump";
