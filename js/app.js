@@ -222,6 +222,10 @@
     presidents = Object.fromEntries(presList.map((p) => [p.id, p]));
     allQuotes = quotes;
 
+    const usable = allQuotes.filter((q) => !REQUIRE_VERIFIED || q.verified);
+    const nPresidents = new Set(usable.map((q) => q.president)).size;
+    $("quote-count").textContent = `${usable.length} verified quotes from ${nPresidents} presidents`;
+
     $("btn-start").addEventListener("click", start);
     $("btn-next").addEventListener("click", next);
     $("btn-again").addEventListener("click", start);

@@ -59,6 +59,7 @@ main {
 .btn-primary { background: var(--navy); color: var(--cream); }
 .btn-primary:hover { background: #1f3260; }
 
+.quote-count { color: var(--muted); font-size: .9rem; margin: 16px 0 0; }
 .progress { color: var(--muted); font-size: .9rem; margin-bottom: 16px; }
 
 .quote {
