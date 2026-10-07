@@ -38,6 +38,11 @@
     return d.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
   }
 
+  // Plausible custom event; a no-op if the script is blocked or missing.
+  function track(name, props) {
+    if (typeof window.plausible === "function") window.plausible(name, props ? { props } : undefined);
+  }
+
   function initials(name) {
     return name.split(" ").filter((w) => /^[A-Z]/.test(w) && !w.endsWith(".")).map((w) => w[0]).join("");
   }
@@ -172,6 +177,7 @@
     }
     $("share-status").textContent = "";
     show("screen-results");
+    track("Game Finished", { score: `${score}/${results.length}` });
   }
 
   async function share() {
@@ -181,9 +187,11 @@
     try {
       if (navigator.share) {
         await navigator.share({ text });
+        track("Shared", { method: "share sheet" });
       } else {
         await navigator.clipboard.writeText(text);
         $("share-status").textContent = "Copied to clipboard.";
+        track("Shared", { method: "clipboard" });
       }
     } catch {
       // User cancelled the share sheet, or clipboard is blocked: nothing to do.
@@ -197,6 +205,7 @@
     results = [];
     show("screen-round");
     renderRound();
+    track("Game Started");
   }
 
   function next() {
