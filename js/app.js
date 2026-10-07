@@ -216,8 +216,9 @@
 
   async function init() {
     const [presList, quotes] = await Promise.all([
-      fetch("data/presidents.json").then((r) => r.json()),
-      fetch("data/quotes.json").then((r) => r.json()),
+      // no-cache: always check for new data (a cheap 304 if unchanged).
+      fetch("data/presidents.json", { cache: "no-cache" }).then((r) => r.json()),
+      fetch("data/quotes.json", { cache: "no-cache" }).then((r) => r.json()),
     ]);
     presidents = Object.fromEntries(presList.map((p) => [p.id, p]));
     allQuotes = quotes;

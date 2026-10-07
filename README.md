@@ -71,4 +71,6 @@ One wrong quote gives critics an easy reason to dismiss the whole site.
 
 Any static host works: GitHub Pages, Netlify or Cloudflare Pages. Point it at this folder; there's no build command.
 
+When you change `css/style.css` or `js/app.js`, bump the `?v=` number on both links in `index.html` (e.g. `?v=2` → `?v=3`) so browsers fetch the new files instead of a cached copy. Quote and president data is always rechecked, so editing the JSON files needs no bump.
+
 If the site moves to a new address, update the absolute URLs in the link-preview tags in `index.html` (`canonical`, `og:url` and `og:image`). Social sites can't load a preview image from a relative path.
