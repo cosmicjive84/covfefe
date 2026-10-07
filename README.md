@@ -26,6 +26,7 @@ img/portraits/<id>.jpg     portraits, one per president id
 img/og-image.png           1200×630 link-preview image
 img/favicon-32.png         favicon (plus apple-touch-icon.png)
 scripts/fetch_portraits.py downloads portraits from Wikipedia/Commons
+CNAME                      custom domain for GitHub Pages
 ```
 
 ## Adding a quote
