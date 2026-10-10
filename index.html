@@ -32,7 +32,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,500&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=3">
+  <link rel="stylesheet" href="css/style.css?v=4">
 </head>
 <body>
   <header class="masthead">
@@ -43,13 +43,22 @@
   <main id="app">
     <!-- Start screen -->
     <section id="screen-start" class="screen">
-      <button class="btn btn-primary" id="btn-start">Start</button>
+      <p class="daily-label" id="daily-label">Daily</p>
+      <button class="btn btn-primary" id="btn-daily">Play today's 10 quotes</button>
+      <div class="daily-done" id="daily-done" hidden>
+        <p class="daily-done-score">Today: <span id="daily-done-score"></span></p>
+        <p class="final-grid" id="daily-done-grid"></p>
+        <button class="btn btn-primary" id="btn-share-daily">Share</button>
+        <p class="daily-next" id="daily-next"></p>
+      </div>
+      <p class="share-status" id="start-share-status" aria-live="polite"></p>
+      <button class="btn" id="btn-practice">Practice: 10 random quotes</button>
       <p class="quote-count" id="quote-count"></p>
     </section>
 
     <!-- Round screen -->
     <section id="screen-round" class="screen" hidden>
-      <div class="progress"><span id="round-num">1</span> / <span id="round-total">10</span> · Score <span id="score">0</span></div>
+      <div class="progress"><span id="round-mode"></span><span id="round-num">1</span> / <span id="round-total">10</span> · Score <span id="score">0</span></div>
       <blockquote class="quote" id="quote-text"></blockquote>
       <div class="options" id="options"></div>
 
@@ -64,6 +73,7 @@
 
     <!-- Results screen -->
     <section id="screen-results" class="screen" hidden>
+      <p class="final-mode" id="final-mode"></p>
       <p class="final-score"><span id="final-score">0</span> / <span id="final-total">10</span></p>
       <p class="final-line" id="final-line"></p>
       <p class="final-grid" id="final-grid"></p>
@@ -71,8 +81,10 @@
       <div class="final-actions">
         <button class="btn btn-primary" id="btn-share">Share</button>
         <button class="btn" id="btn-again">Play again</button>
+        <button class="btn" id="btn-home">Home</button>
       </div>
       <p class="share-status" id="share-status" aria-live="polite"></p>
+      <p class="daily-next" id="final-next"></p>
     </section>
   </main>
 
@@ -80,6 +92,6 @@
     <p>Every quote is real and sourced. Portraits: official presidential portraits via Wikimedia Commons (public domain).</p>
   </footer>
 
-  <script src="js/app.js?v=3"></script>
+  <script src="js/app.js?v=4"></script>
 </body>
 </html>

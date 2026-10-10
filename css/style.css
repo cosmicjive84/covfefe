@@ -59,6 +59,11 @@ main {
 .btn-primary { background: var(--navy); color: var(--cream); }
 .btn-primary:hover { background: #1f3260; }
 
+.daily-label { font-family: var(--serif); font-size: 1.4rem; color: var(--navy); margin: 0 0 12px; }
+.daily-done-score { font-size: 1.2rem; font-weight: 600; margin: 0 0 4px; }
+.daily-next { color: var(--muted); font-size: .9rem; margin: 8px 0 0; }
+#btn-practice { margin-top: 20px; }
+.final-mode { color: var(--muted); font-weight: 600; margin: 0; }
 .quote-count { color: var(--muted); font-size: .9rem; margin: 16px 0 0; }
 .progress { color: var(--muted); font-size: .9rem; margin-bottom: 16px; }
 

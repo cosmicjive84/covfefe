@@ -2,7 +2,9 @@
   "use strict";
 
   // --- Config -------------------------------------------------------------
-  const ROUNDS = 10;
+  const ROUNDS = 10;              // practice game length
+  const DAILY_ROUNDS = 10;
+  const DAILY_EPOCH = [2026, 9, 10]; // Daily #1 is Oct 10, 2026 (month is 0-based)
   const OPTIONS_PER_ROUND = 4;
   const TRUMP_SHARE = 0.5;        // fraction of rounds that are Trump quotes
   const TRUMP_ID = "trump";
@@ -12,6 +14,8 @@
   // --- State --------------------------------------------------------------
   let presidents = {};   // id -> president
   let allQuotes = [];
+  let mode = "practice"; // "daily" | "practice"
+  let day = 0;           // daily number for the current game
   let rounds = [];       // [{ quote, options: [presidentId] }]
   let current = 0;
   let results = [];      // [{ quote, guess, correct }]
@@ -19,13 +23,44 @@
   const $ = (id) => document.getElementById(id);
 
   // --- Helpers ------------------------------------------------------------
-  function shuffle(arr) {
+  function shuffle(arr, rand = Math.random) {
     const a = arr.slice();
     for (let i = a.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
+      const j = Math.floor(rand() * (i + 1));
       [a[i], a[j]] = [a[j], a[i]];
     }
     return a;
+  }
+
+  // FNV-1a string hash and mulberry32 PRNG, so every player gets the same daily.
+  function hash(str) {
+    let h = 2166136261;
+    for (let i = 0; i < str.length; i++) h = Math.imul(h ^ str.charCodeAt(i), 16777619);
+    return h >>> 0;
+  }
+
+  function seededRandom(seed) {
+    let a = hash(seed);
+    return () => {
+      a = (a + 0x6d2b79f5) | 0;
+      let t = Math.imul(a ^ (a >>> 15), 1 | a);
+      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+  }
+
+  // Days since the epoch in the player's local time zone, starting at 1.
+  function todayNumber() {
+    const now = new Date();
+    const today = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
+    return Math.round((today - Date.UTC(...DAILY_EPOCH)) / 86400000) + 1;
+  }
+
+  function untilTomorrow() {
+    const now = new Date();
+    const midnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+    const mins = Math.ceil((midnight - now) / 60000);
+    return `${Math.floor(mins / 60)}h ${mins % 60}m`;
   }
 
   function show(screenId) {
@@ -43,26 +78,85 @@
     if (typeof window.plausible === "function") window.plausible(name, props ? { props } : undefined);
   }
 
+  // Saved daily results. Storage can be unavailable (private mode), so never rely on it.
+  function loadDaily(n) {
+    try { return JSON.parse(localStorage.getItem(`daily-${n}`)); } catch { return null; }
+  }
+
+  function saveDaily(n, result) {
+    try { localStorage.setItem(`daily-${n}`, JSON.stringify(result)); } catch { /* ignore */ }
+  }
+
   function initials(name) {
     return name.split(" ").filter((w) => /^[A-Z]/.test(w) && !w.endsWith(".")).map((w) => w[0]).join("");
   }
 
+  function usableQuotes() {
+    return allQuotes.filter((q) => !REQUIRE_VERIFIED || q.verified);
+  }
+
   // Always include the right answer and Trump; fill the rest at random.
-  function buildOptions(answerId) {
+  function buildOptions(answerId, rand = Math.random) {
     const picks = new Set([answerId, TRUMP_ID]);
-    const pool = shuffle(Object.keys(presidents).filter((id) => !picks.has(id)));
+    const pool = shuffle(Object.keys(presidents).filter((id) => !picks.has(id)).sort(), rand);
     while (picks.size < OPTIONS_PER_ROUND && pool.length) picks.add(pool.pop());
-    return shuffle([...picks]);
+    return shuffle([...picks].sort(), rand);
   }
 
   function buildRounds() {
-    const usable = allQuotes.filter((q) => !REQUIRE_VERIFIED || q.verified);
+    const usable = usableQuotes();
     const trump = shuffle(usable.filter((q) => q.president === TRUMP_ID));
     const others = shuffle(usable.filter((q) => q.president !== TRUMP_ID));
     const total = Math.min(ROUNDS, usable.length);
     const nTrump = Math.min(trump.length, Math.round(total * TRUMP_SHARE));
     const picked = trump.slice(0, nTrump).concat(others.slice(0, total - nTrump));
     return shuffle(picked).map((quote) => ({ quote, options: buildOptions(quote.president) }));
+  }
+
+  // The daily walks through each pool (Trump / everyone else) in a fixed
+  // hash order, so quotes don't repeat until the whole pool has been used.
+  // Adding or removing a quote shifts that order by one, which can swap a
+  // quote in that day's set.
+  // Vary the Trump count by one either way so players can't count their way to answers.
+  function dailyTrumpCount(n) {
+    const lo = Math.max(0, Math.floor(DAILY_ROUNDS * TRUMP_SHARE) - 1);
+    const hi = Math.min(DAILY_ROUNDS, Math.ceil(DAILY_ROUNDS * TRUMP_SHARE) + 1);
+    return lo + Math.floor(seededRandom(`trump-count:${n}`)() * (hi - lo + 1));
+  }
+
+  function buildDailyRounds(n) {
+    const byHash = (list) => list.slice().sort((a, b) => hash(a.id) - hash(b.id) || (a.id < b.id ? -1 : 1));
+    const usable = usableQuotes();
+    const trump = byHash(usable.filter((q) => q.president === TRUMP_ID));
+    const others = byHash(usable.filter((q) => q.president !== TRUMP_ID));
+
+    let tStart = 0;
+    for (let i = 1; i < n; i++) tStart += dailyTrumpCount(i);
+    const oStart = (n - 1) * DAILY_ROUNDS - tStart;
+    const nTrump = Math.min(trump.length, dailyTrumpCount(n));
+    const nOthers = Math.min(others.length, DAILY_ROUNDS - nTrump);
+    const take = (list, start, k) => Array.from({ length: k }, (_, i) => list[(start + i) % list.length]);
+
+    const picked = take(trump, tStart, nTrump).concat(take(others, oStart, nOthers));
+    return shuffle(picked, seededRandom(`daily:${n}`)).map((quote) => ({
+      quote,
+      options: buildOptions(quote.president, seededRandom(`daily:${n}:${quote.id}`)),
+    }));
+  }
+
+  function shareText(r) {
+    const label = r.mode === "daily" ? `Daily #${r.day} ` : "";
+    return `Covfefe or Coolidge? ${label}${r.score}/${r.total}\n${r.grid}\n${location.origin}${location.pathname}`;
+  }
+
+  function currentResult() {
+    return {
+      mode,
+      day,
+      score: results.filter((r) => r.correct).length,
+      total: results.length,
+      grid: results.map((r) => (r.correct ? "🟩" : "🟥")).join(""),
+    };
   }
 
   // --- Rendering ----------------------------------------------------------
@@ -80,8 +174,24 @@
     return img;
   }
 
+  function renderStart() {
+    const n = todayNumber();
+    const done = loadDaily(n);
+    $("daily-label").textContent = `Daily #${n}`;
+    $("btn-daily").hidden = !!done;
+    $("daily-done").hidden = !done;
+    if (done) {
+      $("daily-done-score").textContent = `${done.score}/${done.total}`;
+      $("daily-done-grid").textContent = done.grid;
+      $("daily-next").textContent = `Next daily in ${untilTomorrow()}.`;
+    }
+    $("start-share-status").textContent = "";
+    show("screen-start");
+  }
+
   function renderRound() {
     const { quote, options } = rounds[current];
+    $("round-mode").textContent = mode === "daily" ? `Daily #${day} · ` : "";
     $("round-num").textContent = current + 1;
     $("round-total").textContent = rounds.length;
     $("score").textContent = results.filter((r) => r.correct).length;
@@ -153,11 +263,16 @@
   }
 
   function renderResults() {
-    const score = results.filter((r) => r.correct).length;
-    $("final-score").textContent = score;
-    $("final-total").textContent = results.length;
-    $("final-line").textContent = scoreLine(score, results.length);
+    const result = currentResult();
+    if (mode === "daily") saveDaily(day, result);
+
+    $("final-mode").textContent = mode === "daily" ? `Daily #${day}` : "Practice";
+    $("final-score").textContent = result.score;
+    $("final-total").textContent = result.total;
+    $("final-line").textContent = scoreLine(result.score, result.total);
     $("final-grid").textContent = results.map((r) => (r.correct ? "✅" : "❌")).join("");
+    $("final-next").textContent = mode === "daily" ? `Next daily in ${untilTomorrow()}.` : "";
+    $("btn-again").textContent = mode === "daily" ? "Practice round" : "Play again";
 
     // The fun part: who got mixed up with Trump?
     const fooled = $("final-fooled");
@@ -177,21 +292,19 @@
     }
     $("share-status").textContent = "";
     show("screen-results");
-    track("Game Finished", { score: `${score}/${results.length}` });
+    track("Game Finished", { mode, score: `${result.score}/${result.total}` });
   }
 
-  async function share() {
-    const score = results.filter((r) => r.correct).length;
-    const grid = results.map((r) => (r.correct ? "🟩" : "🟥")).join("");
-    const text = `Covfefe or Coolidge? ${score}/${results.length}\n${grid}\n${location.origin}${location.pathname}`;
+  async function share(result, statusEl) {
+    const text = shareText(result);
     try {
       if (navigator.share) {
         await navigator.share({ text });
-        track("Shared", { method: "share sheet" });
+        track("Shared", { mode: result.mode, method: "share sheet" });
       } else {
         await navigator.clipboard.writeText(text);
-        $("share-status").textContent = "Copied to clipboard.";
-        track("Shared", { method: "clipboard" });
+        statusEl.textContent = "Copied to clipboard.";
+        track("Shared", { mode: result.mode, method: "clipboard" });
       }
     } catch {
       // User cancelled the share sheet, or clipboard is blocked: nothing to do.
@@ -199,13 +312,20 @@
   }
 
   // --- Flow ---------------------------------------------------------------
-  function start() {
-    rounds = buildRounds();
+  function start(gameMode) {
+    mode = gameMode;
+    if (mode === "daily") {
+      day = todayNumber();
+      if (loadDaily(day)) return renderStart(); // already played, e.g. in another tab
+      rounds = buildDailyRounds(day);
+    } else {
+      rounds = buildRounds();
+    }
     current = 0;
     results = [];
     show("screen-round");
     renderRound();
-    track("Game Started");
+    track("Game Started", { mode });
   }
 
   function next() {
@@ -223,14 +343,27 @@
     presidents = Object.fromEntries(presList.map((p) => [p.id, p]));
     allQuotes = quotes;
 
-    const usable = allQuotes.filter((q) => !REQUIRE_VERIFIED || q.verified);
+    const usable = usableQuotes();
     const nPresidents = new Set(usable.map((q) => q.president)).size;
     $("quote-count").textContent = `${usable.length} verified quotes from ${nPresidents} presidents`;
 
-    $("btn-start").addEventListener("click", start);
+    $("btn-daily").addEventListener("click", () => start("daily"));
+    $("btn-practice").addEventListener("click", () => start("practice"));
     $("btn-next").addEventListener("click", next);
-    $("btn-again").addEventListener("click", start);
-    $("btn-share").addEventListener("click", share);
+    $("btn-again").addEventListener("click", () => start("practice"));
+    $("btn-home").addEventListener("click", renderStart);
+    $("btn-share").addEventListener("click", () => share(currentResult(), $("share-status")));
+    $("btn-share-daily").addEventListener("click", () => {
+      const n = todayNumber();
+      const saved = loadDaily(n);
+      if (saved) share({ ...saved, mode: "daily", day: n }, $("start-share-status"));
+    });
+    // Coming back to an open tab on a new day should offer the new daily.
+    document.addEventListener("visibilitychange", () => {
+      if (!document.hidden && !$("screen-start").hidden) renderStart();
+    });
+
+    renderStart();
   }
 
   init().catch((err) => {

@@ -4,6 +4,13 @@ A static guessing game: you see a real presidential quote and pick who said it f
 
 No build step, no backend. Plain HTML, CSS and JS.
 
+## Game modes
+
+- **Daily**: 10 quotes, the same for everyone, changing at each player's local midnight. Daily #1 was October 10, 2026 (`DAILY_EPOCH` in `js/app.js`). Each player's result is saved in their browser, so they can only play each daily once.
+- **Practice**: 10 random quotes, as many times as you like.
+
+The daily works through the Trump quotes and the other quotes in a fixed shuffled order, so a quote won't come back until that whole pool has been used (about 10 days with the current quotes; more quotes make it longer). Adding or removing a quote shifts that order slightly, which can swap a quote in that day's set, so if you can, push quote changes before most people have played that day. Never change `DAILY_EPOCH` or the hashing in `js/app.js` once the site is live, or every daily changes.
+
 ## Run locally
 
 `fetch()` doesn't work over `file://`, so serve the folder over HTTP:
