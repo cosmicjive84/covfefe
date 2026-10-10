@@ -103,12 +103,20 @@
     return shuffle([...picks].sort(), rand);
   }
 
+  // Trump quotes per game: TRUMP_SHARE of the total, varied by one either way
+  // so players can't count their way to answers.
+  function trumpCount(total, rand) {
+    const lo = Math.max(0, Math.floor(total * TRUMP_SHARE) - 1);
+    const hi = Math.min(total, Math.ceil(total * TRUMP_SHARE) + 1);
+    return lo + Math.floor(rand() * (hi - lo + 1));
+  }
+
   function buildRounds() {
     const usable = usableQuotes();
     const trump = shuffle(usable.filter((q) => q.president === TRUMP_ID));
     const others = shuffle(usable.filter((q) => q.president !== TRUMP_ID));
     const total = Math.min(ROUNDS, usable.length);
-    const nTrump = Math.min(trump.length, Math.round(total * TRUMP_SHARE));
+    const nTrump = Math.min(trump.length, trumpCount(total, Math.random));
     const picked = trump.slice(0, nTrump).concat(others.slice(0, total - nTrump));
     return shuffle(picked).map((quote) => ({ quote, options: buildOptions(quote.president) }));
   }
@@ -117,11 +125,8 @@
   // hash order, so quotes don't repeat until the whole pool has been used.
   // Adding or removing a quote shifts that order by one, which can swap a
   // quote in that day's set.
-  // Vary the Trump count by one either way so players can't count their way to answers.
   function dailyTrumpCount(n) {
-    const lo = Math.max(0, Math.floor(DAILY_ROUNDS * TRUMP_SHARE) - 1);
-    const hi = Math.min(DAILY_ROUNDS, Math.ceil(DAILY_ROUNDS * TRUMP_SHARE) + 1);
-    return lo + Math.floor(seededRandom(`trump-count:${n}`)() * (hi - lo + 1));
+    return trumpCount(DAILY_ROUNDS, seededRandom(`trump-count:${n}`));
   }
 
   function buildDailyRounds(n) {
