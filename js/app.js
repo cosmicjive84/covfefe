@@ -10,6 +10,7 @@
   const TRUMP_ID = "trump";
   // Only quotes with verified: true are used.
   const REQUIRE_VERIFIED = true;
+  const REPORT_URL = "https://github.com/cosmicjive84/covfefe/issues/new?template=quote-error.yml";
 
   // --- State --------------------------------------------------------------
   let presidents = {};   // id -> president
@@ -251,6 +252,13 @@
     } else {
       src.appendChild(document.createTextNode(quote.source));
     }
+    src.appendChild(document.createTextNode(" · "));
+    const report = document.createElement("a");
+    report.href = `${REPORT_URL}&quote=${encodeURIComponent(quote.id)}&title=${encodeURIComponent(`Quote problem: ${quote.id}`)}`;
+    report.target = "_blank";
+    report.rel = "noopener";
+    report.textContent = "Report a problem";
+    src.appendChild(report);
 
     $("btn-next").textContent = current + 1 < rounds.length ? "Next" : "See results";
     $("score").textContent = results.filter((r) => r.correct).length;

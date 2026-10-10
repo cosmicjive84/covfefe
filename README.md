@@ -25,6 +25,7 @@ Then open http://localhost:8000.
 
 ```
 index.html                 page shell with start, round and results screens
+about.html                 about, sources, privacy and credits page
 css/style.css              styles
 js/app.js                  game logic (config constants at the top)
 data/quotes.json           the quotes
@@ -34,6 +35,7 @@ img/og-image.png           1200×630 link-preview image
 img/favicon-32.png         favicon (plus apple-touch-icon.png)
 scripts/fetch_portraits.py downloads portraits from Wikipedia/Commons
 CNAME                      custom domain for GitHub Pages
+.github/ISSUE_TEMPLATE/    "Report a problem with a quote" issue form
 ```
 
 ## Adding a quote

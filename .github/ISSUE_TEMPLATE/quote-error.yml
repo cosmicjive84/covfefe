@@ -1,0 +1,41 @@
+name: Report a problem with a quote
+description: Wrong wording, wrong date, wrong president, bad source link, or missing context.
+title: "Quote problem: "
+labels: ["quote error"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping keep every quote accurate. If you came from the game, the quote ID below is already filled in.
+  - type: input
+    id: quote
+    attributes:
+      label: Quote ID or text
+      description: The ID from the game's report link, or paste the start of the quote.
+    validations:
+      required: true
+  - type: dropdown
+    id: problem
+    attributes:
+      label: What's wrong?
+      options:
+        - Wording doesn't match the source
+        - Wrong president
+        - Wrong date
+        - Source link is broken or doesn't support the quote
+        - Context is misleading or wrong
+        - Something else
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: What should it say instead?
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Source
+      description: A link to a transcript, video, archived post or other primary source that shows the correct version, if you have one.
